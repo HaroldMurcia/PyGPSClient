@@ -386,20 +386,19 @@ class SettingsFrame(Frame):
         Position widgets in frame.
         """
 
-        self._frm_serial.grid(
-            column=0, row=1, columnspan=4, padx=2, pady=2, sticky=(W, E)
-        )
-        ttk.Separator(self).grid(
-            column=0, row=2, columnspan=4, padx=2, pady=2, sticky=(W, E)
-        )
-
-        self._frm_socket.grid(
-            column=0, row=3, columnspan=4, padx=2, pady=2, sticky=(W, E)
-        )
-        ttk.Separator(self).grid(
-            column=0, row=4, columnspan=4, padx=2, pady=2, sticky=(W, E)
-        )
-
+        #self._frm_socket.grid(column=0, row=0, columnspan=4, padx=2, pady=2, sticky=(W, E))
+        ## Serial
+        self._frm_serial.grid(column=0, row=0, columnspan=1, padx=2, pady=2, sticky=(W, E))
+        #ttk.Separator(self).grid(column=0, row=2, columnspan=4, padx=2, pady=2, sticky=(W, E))
+        #ttk.Separator(self).grid(column=0, row=4, columnspan=4, padx=2, pady=2, sticky=(W, E))
+        ## Socket
+        self._chk_socketserve.grid(column=5, row=0, rowspan=2, padx=2, pady=2, sticky=(N, S, W))
+        self._lbl_sockmode.grid(column=6, row=0, padx=2, pady=2, sticky=(E))
+        self._spn_sockmode.grid(column=7, row=0, columnspan=2, padx=2, pady=2, sticky=(W))
+        self._lbl_sockport.grid(column=6, row=1, padx=2, pady=2, sticky=(E))
+        self._ent_sockport.grid(column=7, row=1, padx=2, pady=2, sticky=(W))
+        self._lbl_sockclients.grid(column=8, row=1, padx=2, pady=2, sticky=(W))
+        #
         self._frm_buttons.grid(column=0, row=5, columnspan=4, sticky=(W, E))
         self._btn_connect.grid(column=0, row=0, padx=2, pady=1)
         self._btn_connect_socket.grid(column=1, row=0, padx=2, pady=1)
@@ -410,55 +409,32 @@ class SettingsFrame(Frame):
         self._lbl_connect_file.grid(column=2, row=1, padx=1, pady=1, sticky=(W, E))
         self._lbl_disconnect.grid(column=3, row=1, padx=1, pady=1, sticky=(W, E))
 
-        ttk.Separator(self).grid(
-            column=0, row=7, columnspan=4, padx=2, pady=2, sticky=(W, E)
-        )
+        #ttk.Separator(self).grid(column=0, row=7, columnspan=4, padx=2, pady=2, sticky=(W, E))
 
-        self._frm_options.grid(column=0, row=8, columnspan=4, sticky=(W, E))
+        self._frm_options.grid(column=0, row=8, columnspan=3, sticky=(W, E))
         self._lbl_protocol.grid(column=0, row=0, padx=2, pady=2, sticky=(W))
         self._chk_nmea.grid(column=1, row=0, padx=0, pady=0, sticky=(W))
         self._chk_ubx.grid(column=2, row=0, padx=0, pady=0, sticky=(W))
         self._chk_rtcm.grid(column=3, row=0, padx=0, pady=0, sticky=(W))
         self._lbl_consoledisplay.grid(column=0, row=1, padx=2, pady=2, sticky=(W))
-        self._spn_conformat.grid(
-            column=1, row=1, columnspan=2, padx=1, pady=2, sticky=(W)
-        )
-        self._chk_tags.grid(column=3, row=1, padx=1, pady=2, sticky=(W))
-        self._lbl_format.grid(column=0, row=2, padx=2, pady=2, sticky=(W))
-        self._spn_format.grid(column=1, row=2, padx=2, pady=2, sticky=(W))
-        self._lbl_units.grid(column=0, row=3, padx=2, pady=2, sticky=(W))
-        self._spn_units.grid(column=1, row=3, columnspan=3, padx=2, pady=2, sticky=(W))
+        self._spn_conformat.grid(column=1, row=1, columnspan=2, padx=1, pady=2, sticky=(W))
+        #self._chk_tags.grid(column=3, row=1, padx=1, pady=2, sticky=(W))
+        #self._lbl_format.grid(column=0, row=2, padx=2, pady=2, sticky=(W))
+        #self._spn_format.grid(column=1, row=2, padx=2, pady=2, sticky=(W))
+        #self._lbl_units.grid(column=0, row=3, padx=2, pady=2, sticky=(W))
+        #self._spn_units.grid(column=1, row=3, columnspan=3, padx=2, pady=2, sticky=(W))
         self._chk_scroll.grid(column=0, row=4, padx=2, pady=2, sticky=(W))
-        self._spn_maxlines.grid(
-            column=1, row=4, columnspan=3, padx=2, pady=2, sticky=(W)
-        )
-        self._chk_webmap.grid(column=0, row=5, padx=2, pady=2, sticky=(W))
-        self._lbl_mapzoom.grid(column=1, row=5, sticky=(E))
-        self._scl_mapzoom.grid(column=2, row=5, columnspan=2, sticky=(W))
+        self._spn_maxlines.grid(column=1, row=4, columnspan=3, padx=2, pady=2, sticky=(W))
+        #self._chk_webmap.grid(column=0, row=5, padx=2, pady=2, sticky=(W))
+        #self._lbl_mapzoom.grid(column=1, row=5, sticky=(E))
+        #self._scl_mapzoom.grid(column=2, row=5, columnspan=2, sticky=(W))
         self._chk_legend.grid(column=0, row=6, padx=2, pady=2, sticky=(W))
-        self._chk_unusedsat.grid(
-            column=1, row=6, columnspan=3, padx=2, pady=2, sticky=(W)
-        )
+        self._chk_unusedsat.grid(column=1, row=6, columnspan=3, padx=2, pady=2, sticky=(W))
         self._chk_datalog.grid(column=0, row=7, padx=2, pady=2, sticky=(W))
-        self._spn_datalog.grid(
-            column=1, row=7, columnspan=2, padx=2, pady=2, sticky=(W)
-        )
-        self._chk_recordtrack.grid(
-            column=0, row=8, columnspan=2, padx=2, pady=2, sticky=(W)
-        )
-        self._chk_socketserve.grid(
-            column=0, row=9, rowspan=2, padx=2, pady=2, sticky=(N, S, W)
-        )
-        self._lbl_sockmode.grid(column=1, row=9, padx=2, pady=2, sticky=(E))
-        self._spn_sockmode.grid(
-            column=2, row=9, columnspan=2, padx=2, pady=2, sticky=(W)
-        )
-        self._lbl_sockport.grid(column=1, row=10, padx=2, pady=2, sticky=(E))
-        self._ent_sockport.grid(column=2, row=10, padx=2, pady=2, sticky=(W))
-        self._lbl_sockclients.grid(column=3, row=10, padx=2, pady=2, sticky=(W))
-        ttk.Separator(self._frm_options).grid(
-            column=0, row=11, columnspan=4, padx=2, pady=2, sticky=(W, E)
-        )
+        self._spn_datalog.grid(column=1, row=7, columnspan=2, padx=2, pady=2, sticky=(W))
+        #self._chk_recordtrack.grid(column=0, row=8, columnspan=2, padx=2, pady=2, sticky=(W))
+        
+        #ttk.Separator(self._frm_options).grid(column=0, row=11, columnspan=4, padx=2, pady=2, sticky=(W, E))
         self._lbl_ubxconfig.grid(column=0, row=12, padx=2, pady=2, sticky=(E))
         self._btn_ubxconfig.grid(column=1, row=12, padx=2, pady=2, sticky=(W))
         self._lbl_ntripconfig.grid(column=2, row=12, padx=2, pady=2, sticky=(E))
@@ -636,7 +612,7 @@ class SettingsFrame(Frame):
         self._colortags.set(TAG_COLORS)
         self._socket_serve.set(0)
         self._sock_port.set(SOCKSERVER_PORT)
-        self._sock_mode.set(SOCKMODES[0])  # open
+        self._sock_mode.set(SOCKMODES[1])  # open
         self.clients = 0
 
     def enable_controls(self, status: int):

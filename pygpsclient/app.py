@@ -100,10 +100,10 @@ class App(Frame):  # pylint: disable=too-many-ancestors
         # Set initial widget visibility
         self._show_settings = True
         self._show_ubxconfig = False
-        self._show_status = True
-        self._show_console = True
-        self._show_map = True
-        self._show_sats = True
+        self._show_status = False
+        self._show_console = False
+        self._show_map = False
+        self._show_sats = False
 
         # Instantiate protocol handler classes
         self.msgqueue = Queue()

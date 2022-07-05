@@ -123,7 +123,7 @@ class SerialConfigFrame(Frame):
             relief="sunken",
             bg=self._readonlybg,
             width=32,
-            height=5,
+            height=2,
             justify=LEFT,
             exportselection=False,
         )
